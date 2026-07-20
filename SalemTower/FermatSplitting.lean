@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import Mathlib
 
 /-!
@@ -15,8 +20,6 @@ its (necessarily 2-power) order.
 -/
 
 namespace SalemTower
-
-open scoped Classical
 
 /-- **Fermat-prime units have 2-power order (divisibility form).** For a Fermat
 prime `p = 2^n + 1`, every unit of `ℤ/p` has order dividing `2^n`: the unit group

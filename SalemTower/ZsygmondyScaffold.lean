@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import SalemTower.RungWieferich
 
 /-!
@@ -61,10 +66,10 @@ theorem two_rungs_dvd {n a q : ℕ} (hn : 0 < n) (hq : q.Prime)
     then a primitive prime exists — a prime `q` with `ord_q(a) = n`, hence
     `q ≡ 1 (mod n)`.  This reduces Zsygmondy existence to the size statement
     "`Φ_n(a)` is not intrinsic-only" (Birkhoff–Vandiver bound + `Φ_n(a) > n`). -/
-theorem exists_primitive_of_not_intrinsic_only {n a : ℕ} (hn : 0 < n) (ha : 1 < a)
+theorem exists_primitive_of_not_intrinsic_only {n a : ℕ} (hn : 0 < n) (_ha : 1 < a)
     (h : ¬ ∀ q : ℕ, q.Prime → (q : ℤ) ∣ (cyclotomic n ℤ).eval (a : ℤ) → q ∣ n) :
     ∃ q : ℕ, q.Prime ∧ orderOf ((a : ZMod q)) = n ∧ n ∣ q - 1 := by
-  push_neg at h
+  push Not at h
   obtain ⟨q, hq, hdvd, hqn⟩ := h
   refine ⟨q, hq, SalemTower.cyclotomic_primeFactor_orderOf hn hq hqn hdvd, ?_⟩
   -- q ∤ a: q divides Φ_n(a) ∣ aⁿ − 1, so q ∣ a would give q ∣ 1

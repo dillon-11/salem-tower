@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import SalemTower.DicksonTraceTest
 
 /-!
@@ -49,7 +54,7 @@ theorem ternary_rung_sq (u : Rˣ) (s : ℕ) :
 theorem tripling_ascent (t : R) :
     (dickson 1 (1 : R) 3).eval t = t ^ 3 - 3 * t := by
   rw [show (3 : ℕ) = 1 + 2 from rfl, dickson_add_two]
-  simp [dickson_two, dickson_one]
+  simp [dickson_one]
   ring
 
 end SalemTower

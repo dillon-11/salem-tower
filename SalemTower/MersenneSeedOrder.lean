@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import SalemTower.DicksonTraceTest
 import SalemTower.MersenneCapstone
 import SalemTower.UnitAntiperiod
@@ -40,7 +45,7 @@ theorem mersenne_prime_seed_order (p' : ℕ) (hp : (mersenne (p' + 3)).Prime) :
   -- the root relation r² − 4r + 1 = 0
   have hroot : (AdjoinRoot.root f) ^ 2 - 4 * (AdjoinRoot.root f) + 1 = 0 := by
     have h0 := AdjoinRoot.eval₂_root f
-    simp only [hf, seedPoly, eval₂_add, eval₂_mul, eval₂_pow, eval₂_X, eval₂_C,
+    simp only [hf, seedPoly, eval₂_add, eval₂_mul, eval₂_pow, eval₂_X,
       eval₂_neg, eval₂_ofNat, eval₂_one, map_one, map_neg, map_ofNat, one_mul] at h0
     linear_combination h0
   set r := AdjoinRoot.root f with hr
@@ -48,7 +53,7 @@ theorem mersenne_prime_seed_order (p' : ℕ) (hp : (mersenne (p' + 3)).Prime) :
   refine ⟨⟨r, 4 - r, by linear_combination -hroot, by linear_combination -hroot⟩, ?_⟩
   set u : Rˣ := ⟨r, 4 - r, by linear_combination -hroot, by linear_combination -hroot⟩ with hu
   have hsum : (u : R) + ((u⁻¹ : Rˣ) : R) = 4 := by
-    show r + (4 - r) = 4
+    change r + (4 - r) = 4
     ring
   -- the tower vanishing, transported into R
   have hvanF : (((dickson 1 (1 : ℤ) (2 ^ (p' + 1))).eval 4 : ℤ) : F) = 0 :=

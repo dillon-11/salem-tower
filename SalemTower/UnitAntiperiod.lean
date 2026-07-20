@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import SalemTower.DicksonTraceTest
 
 /-!
@@ -49,7 +54,7 @@ theorem Nat.factorization_two_of_dvd_two_mul {d n : ℕ} (hn : n ≠ 0)
   -- failure of d ∣ n gives a place where d exceeds n; it must be 2, by exactly one
   have hex : ∃ p, ¬ d.factorization p ≤ n.factorization p := by
     by_contra hall
-    push_neg at hall
+    push Not at hall
     exact hnd ((Nat.factorization_le_iff_dvd hd0 hn).mp (Finsupp.le_def.mpr hall))
   obtain ⟨p, hp⟩ := hex
   have hp2 : p = 2 := by

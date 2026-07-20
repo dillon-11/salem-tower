@@ -1,4 +1,9 @@
 /-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
+/-
   Challenge: the Salem tower — three headline theorems, stated Mathlib-only.
 
   To a monic integer polynomial `P` attach the tower of 2-power cyclotomic

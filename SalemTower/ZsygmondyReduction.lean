@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Dillon Ryan. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Dillon Ryan
+-/
 import SalemTower.ZsygmondyScaffold
 
 /-!
@@ -96,7 +101,7 @@ theorem geom_sum_sq_modeq {q : ℕ} (hq : q.Prime) (hq2 : q ≠ 2) {x : ℤ}
     intro j _
     ring
   rw [hsplit, hsum_id]
-  refine dvd_add (Finset.dvd_sum fun j _ => hterm j) ⟨c * t, by push_cast; ring⟩
+  refine dvd_add (Finset.dvd_sum fun j _ => hterm j) ⟨c * t, by ring⟩
 
 /-- **Intrinsic primes divide `Φ_d(2)` exactly once**: if `q ∣ d` and
     `q ∣ Φ_d(2)`, then `q² ∤ Φ_d(2)`. -/
@@ -190,7 +195,6 @@ theorem intrinsic_sq_not_dvd {d q : ℕ} (hd : 1 < d) (hq : q.Prime) (hqd : q �
     rwa [sub_sub_cancel] at hd2
   have h1 := Int.le_of_dvd (by exact_mod_cast hq.pos) hqq
   have := hq.two_le
-  push_cast at h1
   nlinarith
 
 /-- **THE REDUCTION**: if `2^d − 1` has no primitive prime divisor at index `d`
@@ -247,7 +251,7 @@ theorem exists_primitive_of_rad_lt {d : ℕ} (hd : 1 < d)
     ∃ q : ℕ, q.Prime ∧ (q : ℤ) ∣ (cyclotomic d ℤ).eval 2 ∧
       orderOf ((2 : ℕ) : ZMod q) = d := by
   by_contra hno
-  push_neg at hno
+  push Not at hno
   have h : ∀ q : ℕ, q.Prime → (q : ℤ) ∣ (cyclotomic d ℤ).eval 2 →
       orderOf ((2 : ℕ) : ZMod q) ≠ d := fun q hq hdvd => hno q hq hdvd
   have hdvd := no_primitive_cyclotomic_dvd_rad hd h
