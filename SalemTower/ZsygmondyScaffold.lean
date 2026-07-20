@@ -27,7 +27,7 @@ the first power — plus the size bound `|Φ_n(a)| > n` (Mathlib has
 `sub_one_pow_totient_lt_cyclotomic_eval` for the archimedean face).  Together with
 this file those force existence for n > 6; the LTE machinery for the valuation
 bound is `multiplicity.Int.pow_sub_pow`.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

@@ -3,7 +3,15 @@ Copyright (c) 2026 Dillon Ryan. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Dillon Ryan
 -/
-import Mathlib
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.FieldTheory.Finiteness
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 /-!
 # the r > 1 (extension) Dedekind grade of tower primes
@@ -22,7 +30,7 @@ the entries 2 (r = 2 in F₄) and 881 (r = 2, ≡ −1 mod 9).
   • `order_dvd_extension_card_sub_one` — a root of order `n` forces `n ∣ q^m − 1`;
   • `extension_grade` — hence `orderOf (q : ZMod n) ∣ m`: the Dedekind grade,
     now theorem at every r.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

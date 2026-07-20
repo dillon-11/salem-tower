@@ -3,7 +3,14 @@ Copyright (c) 2026 Dillon Ryan. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Dillon Ryan
 -/
-import Mathlib
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.NumberTheory.Basic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 /-!
 # Wieferich primes and the order-lift crux
@@ -16,7 +23,7 @@ as the primes where the multiplicative order of 2 fails to grow from `p` to `p²
   • `Wieferich` — the predicate `p² ∣ 2^(p-1) − 1`;
   • `wieferich_iff` — `p` Wieferich ⟺ `(2 : ZMod p²)^(p-1) = 1`;
   • `not_wieferich_two`, `not_wieferich_three` — 2 and 3 are not Wieferich.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

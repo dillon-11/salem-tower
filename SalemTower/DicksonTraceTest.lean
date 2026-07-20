@@ -28,7 +28,7 @@ as the square-and-multiply step.
 Verified computationally: the 720847 Lehmer–Wieferich certificate re-runs at the
 degree-5 trace level (ZMod p²[y]/(P_tr), Dickson fast-doubling) and reproduces
 Σ D_p(y_j) = tr(αᵖ) ≡ −1 (mod p²) — half the matrix dimension of BSDLehmerLadder.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

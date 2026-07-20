@@ -20,65 +20,7 @@ import SalemTower.UnitAntiperiod
 import SalemTower.MersenneSeedOrder
 import SalemTower.ZsygmondyReduction
 
-/-! Axiom audit: every theorem, discharged. -/
-#print axioms SalemTower.cyclotomic_eval_cast
-#print axioms SalemTower.cyclotomic_primeFactor_orderOf
-#print axioms SalemTower.cyclotomic_primeFactor_dvd_sub_one
-#print axioms SalemTower.sq_dvd_pow_mul_of_dvd
-#print axioms SalemTower.wieferich_iff
-#print axioms SalemTower.not_wieferich_two
-#print axioms SalemTower.not_wieferich_three
-#print axioms SalemTower.sq_dvd_two_pow_mul
-#print axioms SalemTower.dvd_pow_orderOf_sub_one
-#print axioms SalemTower.orderOf_lift_dichotomy
-#print axioms SalemTower.dickson_two
-#print axioms SalemTower.dickson_double
-#print axioms SalemTower.dickson_cosh
-#print axioms SalemTower.dickson_trace_atom
-#print axioms SalemTower.TowerLL.tower_lucas_lehmer
-#print axioms SalemTower.TowerLL.atom_lucas_lehmer_step
-#print axioms SalemTower.TowerLL.atom_four_base
-#print axioms SalemTower.TowerLL.tower_cosh
-#print axioms SalemTower.tower_eq_lucasLehmer
-#print axioms SalemTower.tower_step_at_four
-#print axioms SalemTower.tower_residue
-#print axioms SalemTower.tower_eq_lucasLehmerResidue
-#print axioms SalemTower.mersenne_prime_iff_tower_vanishes
-#print axioms SalemTower.mersenne_prime_of_tower_vanishes
-#print axioms SalemTower.tower_vanishes_of_mersenne_prime
-#print axioms SalemTower.fermat_unit_order_dvd
-#print axioms SalemTower.fermat_unit_order_two_power
-#print axioms SalemTower.zmod_pow_eq_one_iff
-#print axioms SalemTower.proper_rung_not_dvd
-#print axioms SalemTower.sq_dvd_pow_sub_one_iff_sq_dvd_cyclotomic
-#print axioms SalemTower.cyclotomic_sq_dvd_iff_orderOf_eq
-#print axioms SalemTower.tower_rung_wieferich
-#print axioms SalemTower.split_common_root_orderOf
-#print axioms SalemTower.split_common_root_dvd_sub_one
-#print axioms SalemTower.tower_split_criterion
-#print axioms SalemTower.adjoinRoot_natCard
-#print axioms SalemTower.order_dvd_extension_card_sub_one
-#print axioms SalemTower.extension_grade
-#print axioms SalemTower.dickson_eval_unit_add_inv
-#print axioms SalemTower.dickson_frobenius_guard
-#print axioms SalemTower.dickson_eval_double
-#print axioms SalemTower.ternary_pair_sq
-#print axioms SalemTower.ternary_rung_sq
-#print axioms SalemTower.tripling_ascent
-#print axioms SalemTower.cyclotomic_eval_dvd_pow_sub_one
-#print axioms SalemTower.primitive_or_intrinsic
-#print axioms SalemTower.two_rungs_dvd
-#print axioms SalemTower.exists_primitive_of_not_intrinsic_only
-#print axioms SalemTower.dickson_zero_iff_pow_eq_neg_one
-#print axioms SalemTower.factorization_orderOf_of_pow_eq_neg_one
-#print axioms SalemTower.orderOf_eq_two_pow_of_pow_eq_neg_one
-#print axioms SalemTower.pow_orderOf_half_eq_neg_one
-#print axioms SalemTower.mersenne_prime_seed_order
-#print axioms SalemTower.sub_one_mul_cyclotomic_dvd
-#print axioms SalemTower.geom_sum_sq_modeq
-#print axioms SalemTower.intrinsic_sq_not_dvd
-#print axioms SalemTower.no_primitive_cyclotomic_dvd_rad
-#print axioms SalemTower.exists_primitive_of_rad_lt
+/-! Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only. -/
 
 /-! The Challenge statements, re-declared at root level (comparator model). -/
 
@@ -106,9 +48,6 @@ theorem cyclotomic_sq_dvd_iff_orderOf_eq {n a q : ℕ} (hn : 0 < n) (hq : q.Prim
       orderOf ((a : ZMod (q ^ 2))) = n :=
   SalemTower.cyclotomic_sq_dvd_iff_orderOf_eq hn hq hqn hqa hdvd
 
-#print axioms tower_eq_lucasLehmer
-#print axioms mersenne_prime_iff_tower_vanishes
-#print axioms cyclotomic_sq_dvd_iff_orderOf_eq
 
 open Polynomial in
 /-- The trace–antiperiod dictionary: over any commutative ring, the Dickson
@@ -137,6 +76,3 @@ theorem no_primitive_cyclotomic_dvd_rad {d : ℕ} (hd : 1 < d)
     ((cyclotomic d ℤ).eval 2).natAbs ∣ ∏ p ∈ d.primeFactors, p :=
   SalemTower.no_primitive_cyclotomic_dvd_rad hd h
 
-#print axioms dickson_zero_iff_pow_eq_neg_one
-#print axioms mersenne_prime_seed_order
-#print axioms no_primitive_cyclotomic_dvd_rad

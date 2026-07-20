@@ -3,7 +3,14 @@ Copyright (c) 2026 Dillon Ryan. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Dillon Ryan
 -/
-import Mathlib
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.Nat.Totient
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 /-!
 # WHY THE SALEM TOWER DETECTS FERMAT PRIMES (the

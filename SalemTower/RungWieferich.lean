@@ -25,7 +25,7 @@ the tower values is the depth grading of the Wieferich locus.  Census (Lehmer to
     q² ∣ Φ_n(a) ⟺ ord_{q²}(a) = n  (the non-lift branch of the dichotomy);
   • `tower_rung_wieferich` — the tower instantiation n = 2^(k+1): a squared prime
     in the rung value is exactly a rung-local Wieferich prime.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

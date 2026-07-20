@@ -18,7 +18,7 @@ gives the full equivalence:
     covering every p ≥ 3);
   • `mersenne_prime_of_tower_vanishes` / `tower_vanishes_of_mersenne_prime` — the
     two directions unbundled for downstream use.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

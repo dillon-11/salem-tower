@@ -3,7 +3,14 @@ Copyright (c) 2026 Dillon Ryan. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Dillon Ryan
 -/
-import Mathlib
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 
 /-!
 # the split-case tower appearance criterion, certified
@@ -22,7 +29,7 @@ tower  in its split case: a completely split tower prime at rung
   • `split_common_root_dvd_sub_one` — hence `n ∣ q − 1`;
   • `tower_split_criterion` — the `n = 2^(k+1)` instantiation, with the unit
     hypothesis `P.IsRoot x` carried explicitly (the split witness of the rung).
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower

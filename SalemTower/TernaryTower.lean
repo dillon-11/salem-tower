@@ -23,7 +23,7 @@ cyclotomic-resultant seed.
   • `tripling_ascent` — `D₃` evaluates to `t³ − 3t`: one ternary rung triples the
     rapidity (`2cosh u ↦ 2cosh 3u`); with Mathlib's `dickson_one_one_mul`,
     `D_{3^(k+1)} = D₃ ∘ D_{3^k}` — the tower is the tripling orbit.
-Axiom-clean, `sorry`-free.
+Axiom footprint: `propext`, `Classical.choice`, `Quot.sound` only.
 -/
 
 namespace SalemTower
