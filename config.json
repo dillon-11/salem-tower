@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "SalemTower",
+  "theorem_names": [
+    "mersenne_prime_iff_tower_vanishes",
+    "cyclotomic_sq_dvd_iff_orderOf_eq",
+    "tower_eq_lucasLehmer",
+    "dickson_zero_iff_pow_eq_neg_one",
+    "mersenne_prime_seed_order",
+    "no_primitive_cyclotomic_dvd_rad"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

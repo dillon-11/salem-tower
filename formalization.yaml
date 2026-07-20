@@ -1,0 +1,105 @@
+version: "v0.3"
+
+project:
+  name: "salem-tower"
+  authors: ["Michael Ryan Clarkson"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "Factorization of certain cyclotomic functions"
+    authors: ["D. H. Lehmer"]
+    id: "https://doi.org/10.2307/1968172"
+    type: "paper (Annals of Mathematics 34, 1933)"
+    author_contacted: "n/a"
+  - title: "The Lucas-Lehmer test (certified implementation)"
+    authors: ["Mathlib contributors"]
+    id: "Mathlib.NumberTheory.LucasLehmer"
+    type: "library (Mathlib)"
+    author_contacted: "no"
+  - title: "Dickson polynomials of the first kind"
+    authors: ["Mathlib contributors"]
+    id: "Mathlib.Algebra.Polynomial.Dickson"
+    type: "library (Mathlib)"
+    author_contacted: "no"
+  - title: "Zur Theorie der Potenzreste"
+    authors: ["K. Zsygmondy"]
+    id: "https://doi.org/10.1007/BF01692444"
+    type: "paper (Monatsh. Math. Phys. 3, 1892) — scaffolded, not proved (see fidelity)"
+    author_contacted: "n/a"
+  - title: "On the integral divisors of a^n - b^n"
+    authors: ["G. D. Birkhoff", "H. S. Vandiver"]
+    id: "https://doi.org/10.2307/2007263"
+    type: "paper (Annals of Mathematics 5, 1904) — the valuation bound is the named open input of the Zsygmondy scaffold"
+    author_contacted: "n/a"
+
+status:
+  scope: >
+    To a monic reciprocal integer polynomial P (e.g. a Salem polynomial) attach
+    the tower L_k = |Res(P, x^(2^k) + 1)|, the 2-power cyclotomic resultant
+    sequence.  Proved here: every L_k is a perfect square with sqrt(L_k) =
+    |Res(P_tr, D_{2^(k-1)})| via Dickson polynomials (the doubling generator
+    D_{2n} = D_n^2 - 2); the specialization at trace atom 4 equals Mathlib's
+    certified Lucas-Lehmer sequence term by term, giving the full equivalence
+    "2^p - 1 is prime iff the tower vanishes mod 2^p - 1" in both directions;
+    the master order theorem for tower primes (q | Phi_n(a), q coprime to n
+    implies ord_q(a) = n); the split (r = 1) and extension (r > 1) Dedekind
+    grades; the rung-local Wieferich theorem q^2 | Phi_n(a) iff ord_{q^2}(a)
+    = n (squared primes in tower values are exactly order-lift failures); the
+    Dickson trace test with its Frobenius guard D_p(y) = y^p over F_p; the
+    ternary (3-power) tower square law and tripling ascent; and the
+    primitive/intrinsic dichotomy reducing Zsygmondy existence to a size
+    bound.  Census facts reported in the README (squarefreeness of Lehmer's
+    tower through rung 10, the 367-polynomial squared-prime classification,
+    the ternary members 163 and 19100773) are exact integer computations with
+    included scripts, not Lean theorems.
+  sorry_count: 6
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "mersenne_prime_iff_tower_vanishes"
+      file: "SalemTower.lean (proof in SalemTower/MersenneCapstone.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: ["Mathlib's Lucas-Lehmer sufficiency/necessity"]
+    - declaration: "cyclotomic_sq_dvd_iff_orderOf_eq"
+      file: "SalemTower.lean (proof in SalemTower/RungWieferich.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "tower_eq_lucasLehmer"
+      file: "SalemTower.lean (proof in SalemTower/MersenneBridge.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+    - declaration: "dickson_zero_iff_pow_eq_neg_one"
+      file: "SalemTower.lean (proof in SalemTower/UnitAntiperiod.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+    - declaration: "mersenne_prime_seed_order"
+      file: "SalemTower.lean (proof in SalemTower/LucasLehmerOrderWeld.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: ["Mathlib's Lucas-Lehmer sufficiency/necessity (via the capstone)"]
+    - declaration: "no_primitive_cyclotomic_dvd_rad"
+      file: "SalemTower.lean (proof in SalemTower/ZsygmondyReduction.lean)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "config.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["claude-fable-5", "claude-opus-4-7"]
+      framework: "Claude Code + the author's research engine (\"ail\")"
+      tool_setup: >
+        Three contributors: the human author (direction, judgment, review);
+        Claude models via Claude Code (reasoning, implementation, Lean
+        formalization); and the author's research harness ("ail") enforcing
+        preregistration, control-first experiments, guard-checked kernels,
+        and independent re-computation.

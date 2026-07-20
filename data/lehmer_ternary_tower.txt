@@ -1,0 +1,7 @@
+# sqrt(N_k) for the ternary (3-power) tower of Lehmer's polynomial
+# N_k = |Res(L, Phi_{3^(k+1)})|; 1 = defect rung; both members = 1 mod 3^(k+1)
+# regenerate: python3 scripts/ternary_tower.py
+1 1
+2 1
+3 163
+4 19100773
